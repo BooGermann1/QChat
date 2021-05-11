@@ -1,0 +1,2 @@
+singleton AppTheme 1.0 ./styles/Theme.qml
+singleton Helpers 1.0 Helpers.qml

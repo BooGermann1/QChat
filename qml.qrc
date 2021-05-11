@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MessageList.qml</file>
+        <file>MessageModel.qml</file>
+        <file>ContactModel.qml</file>
+        <file>Helpers.qml</file>
+        <file>qmldir</file>
+        <file>ContactList.qml</file>
+        <file>assets/14212795111554126457-128.png</file>
+        <file>assets/16370077051554126456-128.png</file>
+        <file>assets/16567574191554126456-128.png</file>
+        <file>assets/19798801871554126463-128.png</file>
+        <file>assets/3757424471554126457-128.png</file>
+        <file>assets/5898021061554126463-128.png</file>
+        <file>assets/8905775431554126461-128.png</file>
+        <file>assets/9538248351554126449-128.png</file>
+        <file>assets/send_icon.png</file>
+        <file>assets/send_icon2.png</file>
+        <file>assets/search_icon.png</file>
+    </qresource>
+    <qresource prefix="/styles">
+        <file>Theme.qml</file>
+    </qresource>
+</RCC>
