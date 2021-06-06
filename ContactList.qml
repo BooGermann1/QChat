@@ -9,8 +9,9 @@ Rectangle {
     Component {
         id: contactDelegate
         Rectangle {
+            id: contactItem
             width: contactsView.width
-            height: 50
+            height: Geometry.contactItemHeight
             border.color: Theme.borderColor
             border.width: 1
             RowLayout{
@@ -18,15 +19,26 @@ Rectangle {
                 anchors.leftMargin: 10
                 Rectangle {
                     id: contactAvatar
-                    width: 30
-                    height: 30
-                    radius: 15
+                    width: Geometry.avatarRaduis * 2
+                    height: Geometry.avatarRaduis * 2
+                    radius: Geometry.avatarRaduis
                     color: "grey"
                 }
                 Text {
                     Layout.fillWidth: true
                     text: person
                     color: Theme.contactsInactiveTxtColor
+                }
+            }
+
+            MouseArea{
+                anchors.fill: parent
+                hoverEnabled: true
+                onEntered: {
+                    contactItem.color = Theme.contactItemHoveredBgColor
+                }
+                onExited: {
+                    contactItem.color = Theme.contactItemBgColor
                 }
             }
 
@@ -38,5 +50,7 @@ Rectangle {
         anchors.fill: parent
         model: contactModel
         delegate: contactDelegate
+        boundsBehavior: Flickable.StopAtBounds
+        ScrollBar.vertical: ScrollBar {active: true}
     }
 }

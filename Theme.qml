@@ -34,4 +34,14 @@ Item {
 
     readonly property color borderColor: "#EFF1F0"
     readonly property color contactsInactiveTxtColor: "#B2B4B3"
+
+    /* Menu */
+    readonly property color menuHeaderBgColor: headerBgColor
+    readonly property color menuItemBgColor: messageViewBgColor
+    readonly property color menuItemHoveredBgColor: messageOtherBgColor //TODO: Fix with proper color
+    readonly property color menuHeaderTxtColor: headerTxtColor
+    readonly property color menuItemTxtColor: messageOtherTxtColor
+    readonly property color contactItemBgColor: messageViewBgColor
+    readonly property color contactItemHoveredBgColor: messageOtherBgColor
+
 }

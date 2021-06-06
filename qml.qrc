@@ -18,8 +18,20 @@
         <file>assets/send_icon.png</file>
         <file>assets/send_icon2.png</file>
         <file>assets/search_icon.png</file>
+        <file>SettingsMenu.qml</file>
+        <file>SettingsItem.qml</file>
+        <file>Header.qml</file>
+        <file>assets/settings_icon.png</file>
+        <file>assets/settings_icon2.png</file>
+        <file>assets/settings_icon3.png</file>
+        <file>assets/question_icon.png</file>
+        <file>assets/search_icon2.png</file>
+        <file>SearchContactField.qml</file>
+        <file>ChatHeader.qml</file>
+        <file>ChatEdit.qml</file>
     </qresource>
     <qresource prefix="/styles">
         <file>Theme.qml</file>
+        <file>Geometry.qml</file>
     </qresource>
 </RCC>

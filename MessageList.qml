@@ -6,7 +6,7 @@ import "qrc:///styles/"
 import "."
 
 Rectangle {
-//    width: 180; height: 200
+
     Component {
         id: messageDelegate
 
@@ -19,14 +19,14 @@ Rectangle {
                 if (sender == "You") {
                     color = Theme.messageMyBgColor
                     anchors.right = parent.right
-                    anchors.rightMargin = 5
+                    anchors.rightMargin = 10
                 } else {
                     color = Theme.messageOtherBgColor
                     anchors.left = parent.left
-                    anchors.leftMargin = 5
+                    anchors.leftMargin = 10
                 }
             }
-            radius: 5
+            radius: 10
 
 
             ColumnLayout {
@@ -66,6 +66,9 @@ Rectangle {
         model: messageModel
         delegate: messageDelegate
         focus: true
-        spacing: 4
+        spacing: 5
+
+        boundsBehavior: Flickable.StopAtBounds
+        ScrollBar.vertical: ScrollBar {}
     }
 }

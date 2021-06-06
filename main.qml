@@ -15,8 +15,8 @@ ApplicationWindow {
     Material.theme: Material.Dark
     Material.accent: Material.Purple
 
-    width: 800
-    height: 600
+    width: Geometry.windowWidth
+    height: Geometry.windowHeight
 
     MessageModel {
         id: messageModel
@@ -26,36 +26,21 @@ ApplicationWindow {
         id: contactModel
     }
 
+    Drawer{
+        id: menuDrawer
+        width: Geometry.menuWidth
+        height: root.height
+        SettingsMenu {
+            id: sideMenu
+            anchors.fill: parent
+        }
+    }
 
     ColumnLayout{
         anchors.fill: parent
-
-        Rectangle{
+        spacing: 0
+        Header{
             id: header
-            visible: true
-            anchors.right: root.right
-            z: 1
-            Layout.fillWidth: true
-            anchors.left: root.left
-            height: 50
-            color: Theme.headerBgColor
-
-            RowLayout{
-                anchors.fill: parent
-                ToolButton{
-                    text: "\u2630"
-                }
-                Label{
-                    text: "Chat window"
-                    horizontalAlignment: Text.AlignHCenter
-                    Layout.fillWidth: true
-                }
-                ToolButton{
-                    text: "m"
-                }
-            }
-
-
         }
         RowLayout{
             spacing: 0
@@ -65,35 +50,13 @@ ApplicationWindow {
                 ColumnLayout{
                     anchors.fill: parent
                     spacing: 0
-                    Rectangle{
-                        id: searchContactField
-                        Layout.fillWidth: true
-                        height: 50
-                        border.color: Theme.borderColor
-                        border.width: 1
-                        RowLayout{
-                            anchors.fill: parent
-                            anchors.leftMargin: 10
-                            Rectangle {
-                                width: 20
-                                height: 20
-                                Image{
-                                    anchors.fill: parent
-                                    source: "./assets/search_icon.png"
-                                    fillMode: Image.PreserveAspectFit
-                                }
-                            }
-
-                            TextEdit{
-                                text: qsTr("Search contact")
-                            }
-                        }
+                    SearchContactField{
                     }
                     Rectangle{
                     id: contactField
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-
+                    z: -1
                         ContactList{
                             border.color: Theme.borderColor
                             border.width: 1
@@ -105,15 +68,7 @@ ApplicationWindow {
             ColumnLayout{
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                Rectangle{
-                    id: chatHeader
-                    Layout.fillWidth: true
-                    height: 50
-                    border.color: Theme.borderColor
-                    border.width: 1
-                    Text {
-                        text: qsTr("Your conversation")
-                    }
+                ChatHeader{
                 }
 
                 Rectangle{
@@ -121,65 +76,16 @@ ApplicationWindow {
                     visible: true
                     Layout.fillWidth: true
                     Layout.fillHeight: true
+                    z: -1
                     MessageList{
                         anchors.fill: parent
                     }
-
-                    function onSent(){
-
-                    }
                 }
 
-                Rectangle{
-                id: footer
-                visible: true
-                Layout.fillWidth: true
-                height: 50
-    //            color: "#2F002F"
-                border.color: Theme.borderColor
-                border.width: 1
-
-                RowLayout {
-                    id: row
-                    anchors.fill: parent
-                    anchors.rightMargin: 20
-
-                    TextEdit {
-                        id: textEdit
-                        text: qsTr("Print your messge here")
-                        Layout.fillWidth: true
-                        leftPadding: 10
-                    }
-
-                    RoundButton {
-                        id: buttons
-                        width: 40
-                        height: 40
-
-
-                        Image {
-                            id: sendIcon
-                            opacity: 1
-
-                            anchors.fill: parent
-                            source: "./assets/send_icon2.png"
-                            anchors.rightMargin: 5
-                            anchors.leftMargin: 5
-                            anchors.bottomMargin: 5
-                            anchors.topMargin: 5
-
-                            clip: true
-                        }
-
-                        onClicked:
-                            messageModel.append({ message: textEdit.text,
-                                                    sender: "You",
-                                                    time: "12:00"})
-                    }
+                ChatEdit{
                 }
-                }
-        }
-
+            }
         }
     }
 }
+

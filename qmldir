@@ -1,2 +1,4 @@
 singleton AppTheme 1.0 ./styles/Theme.qml
+singleton Geometry 1.0 ./styles/Geometry.qml
 singleton Helpers 1.0 Helpers.qml
+
